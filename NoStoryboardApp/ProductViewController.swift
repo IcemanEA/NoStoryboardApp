@@ -96,7 +96,7 @@ class ProductViewController: UIViewController {
         )
     }()
     
-    // MARK: - Public properties
+    // MARK: - public properties
     
     var delegateList: ProductListViewControllerDelegate!
     var delegate: ProductViewControllerDelegate!
@@ -108,19 +108,7 @@ class ProductViewController: UIViewController {
 
         view.backgroundColor = .white
         setupNotifications()
-        navigationItem.largeTitleDisplayMode = .never
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .edit,
-            target: self,
-            action: #selector(openEditProduct)
-        )
-        navigationItem.hidesBackButton = true
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            title: "Back",
-            style: .plain,
-            target: self,
-            action: #selector(backToProductList)
-        )
+        setupNavigationItem()
         
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
@@ -212,6 +200,22 @@ class ProductViewController: UIViewController {
             imageView.heightAnchor.constraint(
                 equalTo: scrollView.heightAnchor, multiplier: 0.5, constant: 0)
         ])
+    }
+    
+    private func setupNavigationItem() {
+        navigationItem.largeTitleDisplayMode = .never
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .edit,
+            target: self,
+            action: #selector(openEditProduct)
+        )
+        navigationItem.hidesBackButton = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "Back",
+            style: .plain,
+            target: self,
+            action: #selector(backToProductList)
+        )
     }
     
     private func setOpenProduct(_ product: Product) {
