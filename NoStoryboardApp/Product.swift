@@ -8,4 +8,8 @@ struct Product {
     let name: String
     let description: String
     let price: Int
+    
+    var priceString: String {
+        "\(price.formatted(.number.grouping(.automatic))) ₽"
+    }
 }

@@ -75,7 +75,7 @@ extension ProductListViewController {
         let product = products[indexPath.row]
         var content = cell.defaultContentConfiguration()
         content.text = product.name
-        content.secondaryText = product.description
+        content.secondaryText = product.priceString
         cell.contentConfiguration = content
         return cell
     }
